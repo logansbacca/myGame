@@ -36,6 +36,8 @@ function start() {
 
 function update() {
     canvas.width = canvas.width;
+    ctx.fillStyle = "#DEB887";
+    ctx.fillRect(0, 750, 800, 800);
     p.show();
 }
 
