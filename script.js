@@ -29,7 +29,6 @@ window.onload = function() {
     start();
     update();
 }
-
 function start() {
     p = new Player (100,650)
 }
