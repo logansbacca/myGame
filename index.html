@@ -1,20 +1,69 @@
-<!DOCTYPE html> 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Game</title>
-</head>
-<body>
-    <canvas id="canv" width="800" height="800"></canvas>
-    <script src="script.js"></script>
+<h1 id="showScore"></h1>
+<h2 id="title">The Little Panda</h2>
+<a href="#"><img id="logo" src="icon.webp"></a>
+<button class="start" id="start-bt" onclick="gmz()">Start Game</button>
 
-    <style>
+<canvas id="canv" width=800 height=800></canvas>
 
-        #canv{
-            background-color: lightblue;
-        }
-        </style>
+<script src="main.js"></script>
 
-</body>
-</html>
+<style>
+    
+    #canv {
+    background-color: #ffd1dc;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 800px;
+    }
+    #showScore {
+        position:absolute;
+        top: 100px;
+        left: 300px; 
+        padding: 50px;
+        text-align: center;
+        color: #1abc9c;
+        font-size: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #start-bt{
+    position: relative;
+    width:200px;
+    top: 100px;
+    left: 300px;
+    border-radius: 8px;
+    height: 30px;
+    background: #1abc9c;
+    color: white;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 15px;
+    }
+
+    #title{
+    text-align: center;
+    margin: 1em 0 0.5em 0;
+	color: #343434;
+	font-weight: normal;
+	font-family: 'Ultra', sans-serif;   
+	font-size: 28px;
+	line-height: 32px;
+	text-transform: uppercase;
+	text-shadow: 0 2px white, 0 3px #777;
+
+    }
+
+    #logo{
+    text-align: center;
+    display: block;
+    height: 48px;
+    width: 48px;
+    margin: auto;
+        
+  
+ 
+    }
+
+    
+</style>
