@@ -63,7 +63,7 @@ class Rock {
     update() {
         if (this.x < p.x + p.w && this.x + this.w > p.x && this.y < p.y + p.h && this.y + this.h > p.y) {
             document.getElementById("gameover-screen").style.display = "block";
-
+      
         }
     }
 }
@@ -86,18 +86,18 @@ function start() {
     for (let i = 0; i < 100; i++) {
         var r = new Rock(rockX, 650);
         rocks.push(r);
-        rockX += Math.floor(Math.random() * 500) + 300;
+        rockX += Math.floor(Math.random() * 500) + 500;
     }
     
-    p.xSpeed = 4;
+    p.xSpeed = 5;
 
-    setInterval(changeSpeed, 500);
+    setInterval(changeSpeed, 600);
     setInterval(increaseScore, 500);
 }
 
 function update() {
     canvas.width=canvas.width;
-    ctx.fillStyle = 'green';
+    ctx.fillStyle = '#7C6104';
     ctx.fillRect(0, 750, 800, 100);
     p.show();
     p.update();
