@@ -1,13 +1,25 @@
 var canvas = document.getElementById("canv");
 var ctx = canvas.getContext("2d");
 
+var p;
+var gravity = 0.1
+
+var canJump = true;
+
+var rocks = [];
+
+var rockX = 800;
+
+var score = 0;
+
+
 class Player {
     constructor(x, y) {
         this.x = x;
         this.y = y;
         this.w = 40;
         this.h = 80;       
-        this.ySpeed = 5;
+        this.ySpeed = 3;
         this.xSpeed = 0;
     }
     show() {
@@ -20,8 +32,8 @@ class Player {
     }
     update() {
         
-         this.y += this.ySpeed;
-         this.ySpeed += gravity;
+        this.y += this.ySpeed;
+        this.ySpeed += gravity;
         
         if (this.y >= 750-80) {
             this.ySpeed = 0;
@@ -49,33 +61,27 @@ class Rock {
        
     }
     update() {
-         if (this.x < p.x + p.w && this.x + this.w > p.x && this.y < p.y + p.h && this.y + this.h > p.y) {
-        location.reload();
+        if (this.x < p.x + p.w && this.x + this.w > p.x && this.y < p.y + p.h && this.y + this.h > p.y) {
+            document.getElementById("gameover-screen").style.display = "block";
+
         }
     }
 }
 
-var p;
-var gravity = 0.1
 
-var canJump = true;
-
-var rocks = [];
-
-var rockX = 800;
-
-var score = 0;
-
-function gmz () {
+function startGame() {
+    document.getElementById("start-screen").style.display = "none";
+    document.getElementById("gameover-screen").style.display = "none";
     start();
-    setInterval(update,100);
-    setInterval(changeSpeed, 500);
-    setInterval(increaseScore, 500);
+    var initInterval = setInterval(update, 10);
+}
+
+function tryAgain() {
+    location.reload();
 }
 
 function start() {
     p = new Player(100, 400);
-    
     
     for (let i = 0; i < 100; i++) {
         var r = new Rock(rockX, 650);
@@ -83,7 +89,10 @@ function start() {
         rockX += Math.floor(Math.random() * 500) + 300;
     }
     
-    p.xSpeed = 5;
+    p.xSpeed = 4;
+
+    setInterval(changeSpeed, 500);
+    setInterval(increaseScore, 500);
 }
 
 function update() {
@@ -109,11 +118,12 @@ function increaseScore() {
     score++;
 }
 
+
+
 function keyDown(e) {
     if (e.keyCode === 32 && canJump) {
-        p.ySpeed = -10;
+        p.ySpeed = -5;
     }
 }
 
-document.onkeypress = keyDown;
-
+document.onkeydown = keyDown;
