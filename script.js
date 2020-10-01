@@ -86,6 +86,7 @@ function start() {
     for (let i = 0; i < 100; i++) {
         var r = new Rock(rockX, 650);
         rocks.push(r);
+        
         rockX += Math.floor(Math.random() * 500) + 500;
     }
     
