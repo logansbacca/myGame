@@ -24,7 +24,7 @@ class Player {
     }
     show() {
         var img = new Image();
-        img.src = 'panda2.png';
+        img.src = 'Panda2.png';
         img.width = 2;
         img.height= 4;
         ctx.drawImage(img,this.x,this.y,100,100);
